@@ -32,23 +32,24 @@ function makePromiseCall(methodType, url, async = true, data = null) {
     });
 
 }
-//get method
+
 const getURL ="http://127.0.0.1:3000/Employee/2";
+
 makePromiseCall("GET", getURL, true)
     .then(responseText => {
         console.log("Get User Data at: " +showTime() + "Details:"+ responseText)
     })
     .catch(error => console.log("GET Error Status: "+ JSON.stringify(error)));
 console.log("Made GET AJAX Promise Call to Server at "+showTime());
-//delete method
+
 const deleteURL ="http://localhost:3000/Employee/6";
-makePromiseCall("DELETE", deleteURL, true)
+makePromiseCall("DELETE", deleteURL, false)
     .then(responseText => {
         console.log("User Deleted at: " +showTime() + "Details:"+ responseText)
     })
     .catch(error => console.log("DELETE Error Status: "+ JSON.stringify(error)));
 console.log("Made DELETE AJAX Call to Server at "+showTime());
-//post
+
 const postURL ="http://localhost:3000/Employee";
 const empData = {"name": "Lakshmi", "salary": "45000"};
 makePromiseCall("POST", postURL, true, empData)
@@ -57,5 +58,3 @@ makePromiseCall("POST", postURL, true, empData)
     })
     .catch(error => console.log("POST Error Status: "+ JSON.stringify(error)));
 console.log("Made POST AJAX Call to Server at "+showTime());
-
-
